@@ -1,30 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Layout Login (Themes)
 
-## Getting Started
+Learning build a themes by [@rocketseat](https://github.com/Rocketseat)
 
-First, run the development server:
+### Stack for learn
+
+---
+
+using [NextJS](https://github.com/vercel/next.js) and [Chakra-ui](https://github.com/chakra-ui/chakra-ui/) to build theme templates
+
+[vercel/next.js](https://github.com/vercel/next.js)
+
+[chakra-ui/chakra-ui](https://github.com/chakra-ui/chakra-ui)
+
+## 🔎 First Steps to create new Application
+
+---
 
 ```bash
-npm run dev
-# or
+yarn create next-app <name-app>
+```
+
+add dependencies of the developments
+
+```bash
+yarn add typescript @types/react @types/node -D
+```
+
+### Install chakra ui lib
+
+```bash
+yarn add @chakra-ui/core @emotion/core @emotion/styled emotion-theming
+```
+
+---
+
+### ✏️to change
+
+- index.js to index.tsx
+- _app.js to _app.tsx
+- into index.tsx remove styles imports
+
+### 🗑to delete
+
+- `api` folder into pages
+- `README.md`
+- `styles` folder
+
+---
+
+## 🚀 Initialize App for developments
+
+---
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Create a ThemeProvider
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-## Learn More
+```tsx
+//theme.ts
+import { theme, DefaultTheme } from '@chakra-ui/core';
 
-To learn more about Next.js, take a look at the following resources:
+const customTheme: DefaultTheme = {
+	...theme,
+};
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+export default customTheme;
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```tsx
+//ThemeContainer.ts
+import React from 'react';
+import {
+	ThemeProvider as ChakraThemeProvider,
+	ColorModeProvider,
+	CSSReset,
+} from '@chakra-ui/core';
+import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
+import theme from '../../styles/theme';
 
-## Deploy on Vercel
+const ThemeContainer: React.FC = ({ children }) => {
+	return (
+		<ChakraThemeProvider theme={theme}>
+			<ColorModeProvider value={'dark'}>
+				<EmotionThemeProvider theme={theme}>
+					<CSSReset />
+					{children}
+				</EmotionThemeProvider>
+			</ColorModeProvider>
+		</ChakraThemeProvider>
+	);
+};
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Watch the guide (pt-Br)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+[https://www.youtube.com/watch?v=6TEo2AxW-oQ&t=16s](https://www.youtube.com/watch?v=6TEo2AxW-oQ&t=16s)
