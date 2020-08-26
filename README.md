@@ -2,9 +2,7 @@
 
 Learning build a themes by [@rocketseat](https://github.com/Rocketseat)
 
-### Stack for learn
-
----
+### 📚Stack for learn
 
 using [NextJS](https://github.com/vercel/next.js) and [Chakra-ui](https://github.com/chakra-ui/chakra-ui/) to build theme templates
 
@@ -13,8 +11,6 @@ using [NextJS](https://github.com/vercel/next.js) and [Chakra-ui](https://github
 [chakra-ui/chakra-ui](https://github.com/chakra-ui/chakra-ui)
 
 ## 🔎 First Steps to create new Application
-
----
 
 ```bash
 yarn create next-app <name-app>
@@ -32,13 +28,11 @@ yarn add typescript @types/react @types/node -D
 yarn add @chakra-ui/core @emotion/core @emotion/styled emotion-theming
 ```
 
----
+### ✏️ to change
 
-### ✏️to change
-
-- index.js to index.tsx
-- _app.js to _app.tsx
-- into index.tsx remove styles imports
+- `index.js` to `index.tsx`
+- `_app.js` to `_app.tsx`
+- into `index.tsx` remove styles imports
 
 ### 🗑to delete
 
@@ -46,19 +40,13 @@ yarn add @chakra-ui/core @emotion/core @emotion/styled emotion-theming
 - `README.md`
 - `styles` folder
 
----
-
 ## 🚀 Initialize App for developments
-
----
 
 ```bash
 yarn dev
 ```
 
 ## Create a ThemeProvider
-
----
 
 ```tsx
 //theme.ts
@@ -96,8 +84,6 @@ const ThemeContainer: React.FC = ({ children }) => {
 };
 ```
 
-### Watch the guide (pt-Br)
-
----
+## 📽 Watch the guide (pt-Br)
 
 [https://www.youtube.com/watch?v=6TEo2AxW-oQ&t=16s](https://www.youtube.com/watch?v=6TEo2AxW-oQ&t=16s)
